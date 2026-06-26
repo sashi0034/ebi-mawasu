@@ -2,11 +2,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Ebitengine",
+      "name": "Debug Game",
       "type": "go",
       "request": "launch",
       "mode": "debug",
-      "program": "${workspaceFolder}",
+      "program": "${workspaceFolder}/cmd/game",
       "buildFlags": "-buildvcs=false",
       "env": {
         "GOCACHE": "${workspaceFolder}/tmp/go-build"

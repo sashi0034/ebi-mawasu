@@ -13,7 +13,7 @@ Or run the VS Code task `air: live reload`.
 For one-shot execution:
 
 ```sh
-go run -buildvcs=false .
+go run -buildvcs=false ./cmd/game
 ```
 
 ## Debug

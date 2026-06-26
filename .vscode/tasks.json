@@ -18,7 +18,7 @@
       "label": "go: run",
       "type": "shell",
       "command": "go",
-      "args": ["run", "-buildvcs=false", "."],
+      "args": ["run", "-buildvcs=false", "./cmd/game"],
       "options": {
         "env": {
           "GOCACHE": "${workspaceFolder}/tmp/go-build"

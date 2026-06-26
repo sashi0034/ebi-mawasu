@@ -2,7 +2,7 @@ root = "."
 tmp_dir = "tmp"
 
 [build]
-cmd = "go build -buildvcs=false -o ./tmp/ebi-mawaru ."
+cmd = "go build -buildvcs=false -o ./tmp/ebi-mawaru ./cmd/game"
 bin = "./tmp/ebi-mawaru"
 delay = 1000
 exclude_dir = ["tmp", ".git", ".vscode"]
