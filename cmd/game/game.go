@@ -2,6 +2,7 @@ package main
 
 import (
 	"ebi-mawaru/cmd/game/asset"
+	"ebi-mawaru/cmd/game/utils"
 )
 
 const (
@@ -10,17 +11,19 @@ const (
 )
 
 type Game struct {
-	ticks  int
-	assets *asset.Asset
+	ticks       int
+	assets      *asset.Asset
+	windowState *utils.WindowStateManager
 }
 
-func newGame() (*Game, error) {
+func newGame(windowState *utils.WindowStateManager) (*Game, error) {
 	assets, err := asset.NewAsset()
 	if err != nil {
 		return nil, err
 	}
 
 	return &Game{
-		assets: assets,
+		assets:      assets,
+		windowState: windowState,
 	}, nil
 }

@@ -8,6 +8,7 @@ import (
 	"github.com/hajimehoshi/ebiten/v2/text/v2"
 
 	"ebi-mawaru/cmd/game/mdi"
+	"ebi-mawaru/cmd/game/utils"
 )
 
 const (
@@ -16,6 +17,11 @@ const (
 )
 
 func (g *Game) Update() error {
+	if ebiten.IsWindowBeingClosed() {
+		_ = g.windowState.Save()
+		return ebiten.Termination
+	}
+
 	g.ticks++
 	return nil
 }
@@ -51,7 +57,8 @@ func drawText(dst *ebiten.Image, s string, face text.Face, x, y int, c color.Col
 }
 
 func main() {
-	game, err := newGame()
+	windowState := utils.NewWindowStateManager("ebi-mawaru")
+	game, err := newGame(windowState)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -59,6 +66,10 @@ func main() {
 	ebiten.SetWindowTitle("ebi-mawaru")
 	ebiten.SetWindowSize(windowWidth, windowHeight)
 	ebiten.SetWindowResizingMode(ebiten.WindowResizingModeEnabled)
+	ebiten.SetWindowClosingHandled(true)
+
+	// Air によるリロード時にウィンドウ位置を復元したい
+	windowState.RestoreIfNeeded()
 
 	if err := ebiten.RunGame(game); err != nil {
 		log.Fatal(err)
