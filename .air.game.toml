@@ -5,7 +5,7 @@ tmp_dir = "tmp"
 cmd = "go build -gcflags=all=\"-N -l\" -buildvcs=false -o ./tmp/game-debug ./cmd/game"
 entrypoint = ["dlv", "exec", "./tmp/game-debug", "--headless", "--listen=127.0.0.1:2345", "--api-version=2", "--accept-multiclient", "--continue"]
 delay = 100
-exclude_dir = ["tmp", ".git", ".vscode"]
+exclude_dir = ["tmp", ".git", ".vscode", "assets"]
 exclude_regex = []
 include_ext = ["go", "toml"]
 kill_delay = "50ms"
