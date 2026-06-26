@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Ebitengine",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}",
+      "buildFlags": "-buildvcs=false",
+      "env": {
+        "GOCACHE": "${workspaceFolder}/tmp/go-build"
+      }
+    }
+  ]
+}
