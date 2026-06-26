@@ -4,6 +4,8 @@ Minimum Ebitengine development environment with Air live reload and VS Code debu
 
 ## Run
 
+Run commands from the project root so assets are resolved from `assets/...`.
+
 ```sh
 air -c .air.toml
 ```
@@ -25,4 +27,3 @@ Open this folder in VS Code and start `Debug Ebitengine`.
 以下のページのアイコンが使える
 
 https://pictogrammers.com/library/mdi/
-

@@ -6,7 +6,6 @@ import (
 	"image/color"
 	"log"
 	"os"
-	"path/filepath"
 
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/text/v2"
@@ -81,24 +80,11 @@ func loadFont(paths []string, name string) (*text.GoTextFaceSource, string, erro
 }
 
 func readAsset(path string) ([]byte, string, error) {
-	dir, err := os.Getwd()
+	b, err := os.ReadFile(path)
 	if err != nil {
-		return nil, "", err
+		return nil, "", fmt.Errorf("read asset %s from working directory: %w", path, err)
 	}
-
-	for {
-		candidate := filepath.Join(dir, path)
-		b, err := os.ReadFile(candidate)
-		if err == nil {
-			return b, candidate, nil
-		}
-
-		parent := filepath.Dir(dir)
-		if parent == dir {
-			return nil, "", err
-		}
-		dir = parent
-	}
+	return b, path, nil
 }
 
 func (g *Game) Update() error {

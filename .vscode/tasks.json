@@ -8,6 +8,7 @@
       "args": ["-c", ".air.toml"],
       "isBackground": true,
       "options": {
+        "cwd": "${workspaceFolder}",
         "env": {
           "GOCACHE": "${workspaceFolder}/tmp/go-build"
         }
@@ -20,6 +21,7 @@
       "command": "go",
       "args": ["run", "-buildvcs=false", "./cmd/game"],
       "options": {
+        "cwd": "${workspaceFolder}",
         "env": {
           "GOCACHE": "${workspaceFolder}/tmp/go-build"
         }
