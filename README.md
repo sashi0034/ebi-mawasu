@@ -19,3 +19,10 @@ go run -buildvcs=false ./cmd/game
 ## Debug
 
 Open this folder in VS Code and start `Debug Ebitengine`.
+
+## Material Design
+
+以下のページのアイコンが使える
+
+https://pictogrammers.com/library/mdi/
+
