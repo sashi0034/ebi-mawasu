@@ -21,7 +21,7 @@ air
 VSCode を開いた状態で F5 を押すとデバッガーが起動します。ブレイクポイントを貼ってデバッグが可能です。
 
 
-## Material Design
+## Material Design について
 
 以下のページのアイコンが使える状態になっています。
 
@@ -29,4 +29,13 @@ https://pictogrammers.com/library/mdi/
 
 プログラム中では、例えば `g.assets.IconImage(mdi.Home)` で 🏠 アイコンの画像オブジェクトを取得できます。
 
-テキスト描画においても、`"これは"+string(mdi.Home)+"です"` のようにアイコンを使えます。
+- 仮画像としても使えるし、本番用の素材としても使えそうです。
+
+- テキスト描画においても、`"これは"+string(mdi.Home)+"です"` のようにアイコンを使えます。
+
+# Actor について
+
+作業効率化やコードの明瞭さのために Actor 経由でオブジェクトの Update(), Draw() を行う設計にしようと思います。
+
+- 簡易的な Unity の GameObject 相当のものです。
+
