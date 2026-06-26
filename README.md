@@ -1,29 +1,32 @@
 # ebi-mawaru
 
-Minimum Ebitengine development environment with Air live reload and VS Code debugging.
+## プロジェクトの始め方
 
-## Run
+1. Go を公式サイトからダウンロードしてインストールする。
 
-Run commands from the project root so assets are resolved from `assets/...`.
+2. Air を以下のコマンドでインストールする。
 
-```sh
-air -c .air.toml
+```
+go install github.com/air-verse/air@latest
 ```
 
-Or run the VS Code task `air: live reload`.
+3. このプロジェクトのディレクトリに移動し、以下のコマンドでゲームを起動する。
 
-For one-shot execution:
-
-```sh
-go run -buildvcs=false ./cmd/game
+```
+air
 ```
 
-## Debug
+`air` で起動すると、ライブリロード状態になります。つまり、ファイルを保存すると即座にリビルドされてゲームが再起動します。
 
-Open this folder in VS Code and start `Debug Ebitengine`.
+VSCode を開いた状態で F5 を押すとデバッガーが起動します。ブレイクポイントを貼ってデバッグが可能です。
+
 
 ## Material Design
 
-以下のページのアイコンが使える
+以下のページのアイコンが使える状態になっています。
 
 https://pictogrammers.com/library/mdi/
+
+プログラム中では、例えば `g.assets.IconImage(mdi.Home)` で 🏠 アイコンの画像オブジェクトを取得できます。
+
+テキスト描画においても、`"これは"+string(mdi.Home)+"です"` のようにアイコンを使えます。
