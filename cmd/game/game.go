@@ -2,6 +2,8 @@ package main
 
 import (
 	"ebi-mawaru/cmd/game/asset"
+	"ebi-mawaru/cmd/game/core"
+	"ebi-mawaru/cmd/game/gameplay"
 	"ebi-mawaru/cmd/game/utils"
 )
 
@@ -11,8 +13,7 @@ const (
 )
 
 type Game struct {
-	ticks       int
-	assets      *asset.Asset
+	actors      core.ActorList
 	windowState *utils.WindowStateManager
 }
 
@@ -22,8 +23,10 @@ func newGame(windowState *utils.WindowStateManager) (*Game, error) {
 		return nil, err
 	}
 
-	return &Game{
-		assets:      assets,
+	game := &Game{
 		windowState: windowState,
-	}, nil
+	}
+	game.actors.Add(gameplay.NewGameplayScene(assets))
+
+	return game, nil
 }
