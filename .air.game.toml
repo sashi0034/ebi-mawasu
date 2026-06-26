@@ -1,0 +1,18 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -gcflags=all=\"-N -l\" -buildvcs=false -o ./tmp/game-debug ./cmd/game"
+entrypoint = ["dlv", "exec", "./tmp/game-debug", "--headless", "--listen=127.0.0.1:2345", "--api-version=2", "--accept-multiclient", "--continue"]
+delay = 100
+exclude_dir = ["tmp", ".git", ".vscode"]
+exclude_regex = []
+include_ext = ["go", "toml"]
+kill_delay = "50ms"
+stop_on_error = true
+
+[log]
+time = true
+
+[misc]
+clean_on_exit = true

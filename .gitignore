@@ -3,3 +3,4 @@ tmp/
 *.test
 coverage.out
 .air.log
+AGENTS.override.md
