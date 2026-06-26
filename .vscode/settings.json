@@ -1,8 +1,0 @@
-{
-  "go.testEnvVars": {
-    "GOCACHE": "${workspaceFolder}/tmp/go-build"
-  },
-  "go.toolsEnvVars": {
-    "GOCACHE": "${workspaceFolder}/tmp/go-build"
-  }
-}
